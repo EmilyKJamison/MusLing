@@ -1,0 +1,246 @@
+[file]
+musling.pdf
+[notes]
+
+### 2
+This is a talk on the combination of two wildly-different research fields: speech prosody and music.  I will talk about each of them separately, and then combine them.  
+ 
+ Speech prosody is much easier to understand if examine it as a component of a speech synthesis system, so I'm going to start by talking about speech synthesis.
+
+### 3
+Speech synthesis is the process of converting text to automatically generated audio speech.
+
+ There are many components in a speech synthesis pipeline. [...]
+
+ Here's an example of synthesized speech. AUDIO 
+
+### 4
+With all the modern computational advances in speech synthesis, you might be surprised to know that people have been working on synthesizing speech long before computers.  
+
+Early scientific advances: 
+ - Danish scientist Christian Gottlieb Kratzenstein's 1779 models of the human vocal tract that could produce 5 long vowel sounds.  
+ - In 1791,  Wolfgang von Kempelen of Pressburg, Hungary built a bellows-operated "acoustic-mechanical speech machine".  The machine had a tongue and lips to pronounce consonants as well as vowels.  This 1791 device was extended into:
+ - Charles Wheatstone's 1837 "speaking machine", and other variations were produced in 1846 and 1923.  
+ - In 1939, Homer Dudley built the The Voder (Voice Demonstrator), a  keyboard-operated voice-synthesizer based on fundamental tones and resonances of speech. AUDIO
+ - In 1950, Dr. Franklin S. Cooper and his colleagues completed the Pattern playback, which converts pictures of the acoustic patterns of speech in the form of a spectrogram back into sound. AUDIO  
+ - 1980's and 1990's: Bell Labs synthesys system started to use NLP technology. 
+
+### 5
+But all of these systems, up thru 2016 state of the art, suffer from a critical flaw: they sound like robots.  Specifically, the prosody and intonation, or duration and pitch, of the generated speech is unlike human speech.  Here's a visualization of human speech versus Google's TTS engine.  AUDIO
+
+ Let's take a closer look at the spectrogram for this sentence.  There is an incredible amount of data in this spectrogram.  Look at all these different intensities, and formants, and changes in F0...  It's difficult to know which of these differences are meaningful, and which is just noise.  
+
+### 6
+Here's a large visual difference: gray versus white.  But it's just background static, and does not impact our perception of the speech at all. 
+
+### 7
+Here's a difference in pitch contour. This may or may not be meaningful, but a listener can definitely hear the difference.  
+
+### 8
+Here's another difference in pitch contour.  
+
+### 9
+Here's a difference in duration.  This is not meaningful by itself, but may be meaningful in relation to durations of other words here, or when combined with pitch.  
+
+### 10
+I'm going to leave you hanging there on prosody for a bit, and jump over to a completely different subject: Western tonal music.  Western tonal music is the traditional music system of Western and Central Europe since the Middle Ages, 1000 years ago.  'Tonal' means not 'atonal' music, 12-tone music, etc, which has mostly been developed in the last 150 years. 
+
+### 11
+The central idea of this musical system is pitch.  Pitch is a measurement of Hertz, or cycles per second of sound.  Hertz is a continuum from 0 to infinity. VIDEO VIDEO  But in music, we break down this continuum into a ratio scale [values have order, value between units, and an absolute zero] of intervals, and interpret the sound based on ratios of intervals.  
+ 
+ Example: 441 Hz falls into the interval of [427.47 - 452.89].  All noises in this interval are considered equivalent, and they are labelled 'note A'.  
+ Noises in the interval [479.82 - 508.35] are labelled 'note B'. 
+
+ Furthermore, we can abstract away from these absolute Hertz values by labeling sets of notes in relation to eachother, instead of in relation to their Hertz.  Thus, in C major, C is 'scale degree 1' and G is 'scale degree 5'.  
+ In D major, D is 'scale degree 1' and A is 'scale degree 5'.  
+ We can choose to talk just about 'scale degree 1 or 5' etc, without specifying the key. 
+
+### 12
+The system also includes rhythmic techniques for emphasizing one note over another, via loudness and duration. 
+
+### 13
+While we have evidence of music from as far back as 41,000 years ago (carved bone pipes), we do not know what musical system existed at that time.  
+ We trace several of the fundimental concepts of Western Tonal music to ancient Greece, including:
+ - musical scales (a ratio-defined set of notes related to one central note), 
+ - musical modes (alternative tonalities or interval ratios within a musical scale), and 
+ - harmony, which the ancient Greeks defined as ratios within a scale and which *may* have referred to simultaneous notes. (By the Middle Ages, the notes were definitely simultaneous.)  
+ - 'melos', which the ancient Greeks used to describe different categories of rhythmic composition. 
+
+### 14
+By the mid-1400's, Western composers were writing richly polyphonic music, with multiple lines of music combined synchronously.  
+
+ By at least 1532, species counterpoint had emerged as an academic study of simultaneous sequential and synchronous music modeling.  The model was expressed via lists of rules and preferences such as 
+ - '[In sequential music,] the ascending minor sixth must be immediately followed by motion downwards'
+ -  'If writing a skip in one direction, it is best to proceed after the skip with motion in the other direction'
+ - '[In synchronous music,] contrary motion should predominate.' 
+  AUDIO 
+
+### 15
+One of the fascinating things about the musical system is that we don't know where it comes from.  We have these very specific rules about what makes "good music" and "bad music", but we don't know why these rules are rules.  Music is currently understood as a very abstract art form with almost no connection to other scientific human systems. 
+
+### 16
+Now I'm going to talk about combining the research of music and speech prosody. 
+
+### 18
+We're going to break this down into some smaller immediate research questions.  First: What evidence do we have of a connection between speech prosody and the musical system? 
+
+ Let's think a minute here: If we didn't know about a system of music, how could we find it?  Let's say we just had recordings of speech and of acapella singing.  What signifies the music? 
+
+ Afterall, everyone *knows* that speech and singing are two very different systems, so let's examine some of those differences.  
+
+### 19
+Let's examine a singing file by taking slices of the audio, 20x per second, extract the pitch and intensity from each slice, and plot the results.  Here we see the spectrogram being sliced. 
+
+### 20
+AUDIO 
+ Each green dot is one F0 (pitch) / intensity instance.  X-axis is F0; Y-axis is intensity.  We can see these vertical bands centered around 235 Hz, 272 Hz, etc.  There's a general tendency for higher Hz to correlate with higher intensity, but otherwise, we are mostly concerned with Hz. 
+
+### 21
+To see these vertical bands clearer, I've clustered then, and graphed the cluster weights.  Cluster weights are the right-hand y-axis. 
+
+### 22
+Oh look, we have these mathematical relations between clusters.  Several clusters are centered in powers of 1.05946 apart.  We've just discovered evidence of the musical scale, which (for over 300 years) consists of intervals that are multiples of 1.05946. 
+
+ 
+
+### 23
+I've marked the first big cluster as SD1, and then calculated other scale degrees.  You can see many of the cluster peaks line up with scale degrees. 
+ 
+ Not all do, however.  This can be caused by singing out of tune, or it can be an artifact of clustering.  Here, Adele is a famous, well-respected singer, and even her peaks do not all align with scale degrees, yet her singing is music. 
+
+ Now, it would be reasonable to assume that *this* is the difference between speech and music, because everyone knows that music is in notes, and speech is something different, right?
+ 
+
+### 24
+Here is the same graph for an Eisenhower speech. 
+
+ AUDIO
+
+ It's much noisier, but you can still see some vertical bands. 
+
+### 25
+The vertical bands are clearer with the clustering. 
+
+### 26
+And... check it out!  Just like Adele's singing, if we align the biggest leftmost peak with SD1 of a super-imposed scale, most of the peaks align with musical notes! 
+ 
+ Is Eisenhower a freak who speaks in musical notes? 
+
+### 27
+Nope!  So does Franklin Roosevelt, ... 
+
+### 28
+... and George Bush Sr. ... 
+
+### 29
+And a whole bunch of other political, military, and public figures, including Clinton, Lyndon B Johnson, General MacArthur, Reagan, Studs Terkel, and more. 
+
+### 30
+We looked at some German-language speeches, too, since after all, Western tonal music is especially connected to German-speaking cultures.  Here is a speech by Goebbels, which has good alignment with scale degrees. 
+
+### 31
+Here's a speech by Hitler, and not only is there good alignment with scale degrees, but --check this out-- there's a peak at b3 and not at 3: Hitler speaks in minor!!! How evil is that?!? 
+
+### 32
+What about the sequence of SD's?  Maybe people speak in musical notes, but the sequential pattern is random.  Let's test that.
+
+ So we learned a music bigram grammar from our corpus of 265 pieces of music from German composers.  With this grammar, we can calculate average generative probabilities for the sequence of intervals. SLIDE
+
+Then we calculated average probabilities of sequential intervals for:
+ - random sequences of SD's
+ - random neighboring SD's (because the random sequences have lots of large leaps, which are atypical of music and speech)
+ - music (withheld eval set, soprano line)
+ - speech sentence SDs 
+ 
+
+### 33
+Here we can see each dot is one sequence of SD's, such as from one sentence.  X-axis show deviation from average sequence length, and the y-axis shows average bigram probability.
+
+ We can see that Nope! Speech intervals are not the same as random.
+
+ Music has the highest generative probabilities, as you would expect. But the speech probabilities are higher than both the random and random neighboring sequences, indicating that we can learn a speech SD model from music! 
+
+### 34
+So far, we've seen similarities between aggregated speech prosody and music.  
+
+ Now let's take a closer look, down at the linguistic level. 
+
+### 35
+Now we are going to investigate, 'how to label a SD1, or musical tonic note, in the notes of speech prosody.' 
+
+### 36
+Let's take another look at Adele's scatterplot.  In this plot, not all the peaks line up with notes, and not all notes correspond to a peak, so it is necessary to guess which peak to label SD1. Since Adele is actually singing and not speaking, we can corroborate SD1 by consulting the music, and indeed, SD1 here is correct.  
+
+ Why is SD1 important?  If we eventually want to predict F0, then we will need training data, in which the interval distances from a central pitch must hold the same linguistic meaning, no matter which speech or speaker we use.
+
+ But how can we calculate SD1 if we don't have music to consult, such as in speech?
+
+### 37
+In music theory and in computer science, finding key is a long-studied topic, and theorists and automatic systems are very good at it.  They use features like: 
+
+ Tritone is a unique interval that only occurs once per major scale, between SD4 and SD7.
+ In written music, a key signature identifies the key of the writing, and accidentals are used to alter the key in situ.
+ Diatonic chord progression refers to an established music language model of sequence of chords.
+ These are pretty technical musical features, but what matters here is that they require extreme accuracy of notation.  We don't have this accuracy when analyzing audio recordings of speakers. We need another method.
+
+### 38
+So we looked at simple note frequency in written music. [DESCRIBE EXPS AND DATA AND RESULTS] 
+
+### 39
+Let's apply this finding to the Adele scatterplot.  
+
+ Sure enough, just eyeballing, SD1 is probably the densest peak, with close runners up of SDb3 and SD5.  Note that there is no other SD alignment here that would also maximize the dense peaks with SD1 and SD5.
+
+### 40
+But it turns out, there's usually an easier way.  The lowest dense peak is usually SD1. Here are speeches by Lyndon B. Johnson, Bill Clinton, Studs Terkel, and Ronald Reagan. 
+
+### 41
+Our next research question concerns the pauses in speech prosody: Can we use syntactic features to predict these pauses? 
+
+### 42
+ Why predict pauses?
+ 1. From hand analysis, we believe pauses influence SD and duration of other pitches.  Ex: SD1 on the first unaccented syllable after a pause.
+ 2. Pauses and other durational information is part of prosody, and must be modelled in order to model prosody. 
+ 
+ Here's a spectrogram from a speech by Eisenhower.  Those of you not familiar with phonetics might be surprised to realize that most phonemes and words do not actually have pauses between them; we perceive them as separate units anyways.  
+ But there are some pauses.
+ Pauses are in yellow.
+
+### 43
+We will model this as a 2-class CRF machine learning task, where for each word, we predict whether or not there is a pause following the word. 
+
+ Here, the 'red' words = NO PAUSE, and 'green' words = PAUSE. 
+
+### 44
+[READ SLIDE] 
+
+### 45
+Here are the results, on two different pilot datasets of political speeches. The critical measure is the F$_1$ of the minority class, 'followed by a pause'. See:
+
+ 1. POS tags are helpful.
+ 2. Tree Kernels are helpful.
+ 3. POS and TK are each independently helpful, with a combined result improvement of over 20 percentage points in both pilot datasets. 
+
+### 46
+All of our previous investigations have been building up to one huge research question: Can we predict scale degrees in the prosody? 
+
+### 47
+To model F0 via musical notes in speech, first we need to extract F0 as musical notes, to build a training dataset.  Here's the pipeline of tools that we need.
+
+### 48
+This is a screenshot of the result, as shown in the speech tool Praat. 
+
+### 49
+The yellow highlighted section shows average F0 of a vowel as a feature of a syllable, and also this pitch converted into a scale degree.  Remember, we discussed finding the SD1 earlier. 
+
+### 50
+Once we have the scale degrees, we want to build an experiment pipeline that extracts NLP features from the text, combines them with scale degrees, and evaluates our model.  
+
+ The first part of this figure is the same pipeline as earlier.  Here we see the full picture. 
+
+### 51
+One of the pipeline steps was extracting NLP features from the text to help model F0.  How can NLP help model F0?  One linguistic feature that has been proposed to affect F0 is focus/contrastive topic status of an entity in the text.  In the following synthesized speech, the 3 sentences 'Marty ate the potato chips' should sound different depending on context, but they do not.
+ AUDIO 
+
+### 52
+So that's where we are now. 
